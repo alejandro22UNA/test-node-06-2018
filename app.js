@@ -3,14 +3,15 @@ var bodyparser = require('body-parser');
 var expressjwt = require('express-jwt');
 var cors = require('cors');
 
+//agregadas despues de descargado de git
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
 var app = express();
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 app.use(express.static('public'));
 
-//agregadas despues de descargado de git
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
+
 
 app.use(cors());
 /*app.use(expressjwt({secret:'secreto'})
