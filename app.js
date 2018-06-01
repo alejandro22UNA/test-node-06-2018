@@ -4,14 +4,16 @@ var expressjwt = require('express-jwt');
 var cors = require('cors');
 
 //agregadas despues de descargado de git
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
+
 var app = express();
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 
-app.set('port', (process.env.PORT || 5000))
+
 app.use(express.static('public'));
+//app.set('port', (process.env.PORT || 5000))
+app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views');
 
 
 
@@ -27,6 +29,6 @@ var routes = require('./routes');
 connection.inicia();
 routes.configurar(app);
 
-var server = app.listen('port', function() {
+var server = app.listen(8000, function() {
    console.log('Escuchando en el puerto ', server.address().port);
 })
