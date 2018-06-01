@@ -2,7 +2,7 @@ var express = require('express');
 var bodyparser = require('body-parser');
 var expressjwt = require('express-jwt');
 var cors = require('cors');
-
+var path = require('path');
 //agregadas despues de descargado de git
 
 var app = express();
@@ -13,9 +13,7 @@ app.use(bodyparser.json());
 app.use(express.static('public'));
 app.set('port', (process.env.PORT || 5000))
 app.set('view engine', 'ejs');
-app.set('views', __dirname + '/views');
-
-
+app.set('views', path.join(__dirname, 'views'));
 
 app.use(cors());
 /*app.use(expressjwt({secret:'secreto'})
@@ -25,6 +23,7 @@ app.use(cors());
 
 var connection = require('./connection');
 var routes = require('./routes');
+
 
 connection.inicia();
 routes.configurar(app);
