@@ -1,0 +1,1 @@
+web: target/universal/stage/bin/<test-06-2018> -Dhttp.port=${PORT} -DapplyEvolutions.default=true
