@@ -11,7 +11,7 @@ app.use(bodyparser.json());
 
 
 app.use(express.static('public'));
-//app.set('port', (process.env.PORT || 5000))
+app.set('port', (process.env.PORT || 5000))
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 
@@ -28,7 +28,11 @@ var routes = require('./routes');
 
 connection.inicia();
 routes.configurar(app);
-
+/*
 var server = app.listen(8000, function() {
    console.log('Escuchando en el puerto ', server.address().port);
+})
+*/
+var server = app.listen(app.get('port'), function() {
+  console.log("Node app is running at localhost:" + app.get('port'))
 })
